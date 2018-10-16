@@ -10,16 +10,17 @@ public class EjercicioTres {
 	
 	public static void main(String[] args) {
 		// variables
-		int contadorImpares = 0, producto = 1;
+		int producto = 1;
 		
 		// Recogida de datos
-		System.out.println("Dame el número de impares: ");
+		System.out.print("Número: ");
 		int num = sc.nextInt();
 		
-//		while () {
-//			
-//		}
-		
+		for (int i = 1; i <= (num * 2); i = i + 2) {
+				producto = producto * i;
+				System.out.println(i);
+		}
+		System.out.println("El producto de los primeros " + num + " impares es de: " + producto);
 		sc.close();
 	}
 
