@@ -11,8 +11,9 @@ public class EjercicioDos {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+	
 		
-
+		sc.close();
 	}
 
 }
