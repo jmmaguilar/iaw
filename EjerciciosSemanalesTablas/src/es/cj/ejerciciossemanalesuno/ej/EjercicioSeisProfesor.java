@@ -4,18 +4,14 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EjercicioSeis {
-	//	Crear una tabla de n elementos. Pedir al usuario un valor entre 0 y n-1. 
-	//	Eliminar el valor de esa posición y desplazar todos los elementos para no dejar el 
-	//	hueco vacío
-	
+public class EjercicioSeisProfesor {
+
 	private static Scanner sc = new Scanner(System.in);
 	
 	private static int [] tabla;
-	private static int tamano, valor = 0;
 	
 	public static void main(String[] args) {
-		
+		int tamano;
 		do {
 			System.out.print("Dame el tamaño de la tabla: ");
 			tamano = sc.nextInt();
@@ -26,32 +22,25 @@ public class EjercicioSeis {
 		inicializarTabla();
 		
 		mostrarTabla();
+
+		int posicion;
+		do {
+			System.out.println("Valor: ");
+			posicion = sc.nextInt();
+		} while (posicion < 0 || posicion > tamano);
 		
-		System.out.print("Dame el valor a borrar: ");
-		valor = sc.nextInt();
-		borrar();
+		eliminarPosicion(posicion);
 		
 		mostrarTabla();
 		
 		sc.close();
 	}
 
-	private static void borrar() {
-		Arrays.sort(tabla);
-		int posicion = Arrays.binarySearch(tabla, valor);
-		System.out.println(posicion);
-		if(posicion >= 0) {	
-			for (int i = posicion; i <= tabla.length; i++) {
-				if (tabla[i] < tabla.length) {
-					tabla[i] = tabla[i + 1];
-				} else {
-					tabla[i] = 0;
-				}
-				
-			} 
-		} else {
-			System.out.println("Valor no encontrado");
+	private static void eliminarPosicion(int posicion) {
+		for (int i = posicion; i < tabla.length - 1; i++) {
+			tabla[i] = tabla[i + 1];
 		}
+		tabla[tabla.length - 1] = 0;
 	}
 
 	private static void mostrarTabla() {
@@ -65,5 +54,4 @@ public class EjercicioSeis {
 		}
 		
 	}
-
 }
