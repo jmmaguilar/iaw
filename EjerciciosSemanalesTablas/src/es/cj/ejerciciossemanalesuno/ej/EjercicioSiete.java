@@ -16,11 +16,28 @@ public class EjercicioSiete {
 	private static Scanner sc = new Scanner(System.in);
 	private static int [][] tabla = new int [10][3];
 	
+	private static int alumno = 0;
+	
 	public static void main(String[] args) {
 		
 		inicializarTabla();
 
 		mostrarTabla();
+		
+		do {
+			System.out.println("Número de alumno: ");
+			alumno = sc.nextInt();
+		} while (alumno <= 0 && alumno > 10);
+		System.out.print("La media final del alumno: " + alumno + " es de: " + media());
+	}
+
+	private static double media() {
+		double media = 0;
+			for (int i = 0; i < tabla[alumno].length; i++) {
+				media = tabla[alumno][i] + media;
+			}
+			media = media / 3;
+		return media;
 	}
 
 	private static void mostrarTabla() {
